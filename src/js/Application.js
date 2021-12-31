@@ -16,7 +16,7 @@ export default class Application extends EventEmitter {
   setEmojis(emojis) {
     this.emojis = emojis;
     let par = document.createElement("p")
-    let el = document.getElementById('emojis')
+    let el = document.querySelector('#emojis')
     par.textContent = '';
      let newPAr = this.emojis.map( el => par.textContent = par.textContent + ' ' + el)
     //par.textContent = emojis;

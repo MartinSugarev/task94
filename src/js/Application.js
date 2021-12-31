@@ -18,10 +18,11 @@ export default class Application extends EventEmitter {
     let par = document.createElement("p")
     let el = document.querySelector('#emojis')
     par.textContent = '';
-     let newPAr = this.emojis.map( el => par.textContent = par.textContent + ' ' + el)
-    //par.textContent = emojis;
+    // let newPAr = this.emojis.map( el => par.textContent = par.textContent + ' ' + el)
+    let newArr = this.emojis.map(el =>  el + ' ' + this.banana);
+    par.textContent = newArr;
     
-    el.appendChild(newPAr);
+    el.appendChild(par);
   }
 
   addBananas() {

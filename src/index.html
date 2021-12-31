@@ -8,12 +8,51 @@
       content="Used as a boilerplate for tasks in the 'HTML, CSS and SASS' course in boom.dev"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="/src/js/Application.js" type="module"></script>
   </head>
   <body>
     <div class="main">
       <div id="emojis"></div>
     </div>
+    <script>
+  class Application {
+  static get events() {
+    return {
+      READY: "ready",
+    };
+  }
+
+  constructor() {
+    this.emojis = [];
+    this.banana = "🍌";
+  }
+  setEmojis(emojis) {
+    this.emojis = emojis;
+    let par = document.createElement("p")
+    let el = document.querySelector('#emojis')
+    par.textContent = '';
+    // let newPAr = this.emojis.map( el => par.textContent = par.textContent + ' ' + el)
+    let newArr = this.emojis.map(el =>  el + ' ' + this.banana);
+    par.textContent = newArr;
+    
+    el.appendChild(par);
+  }
+
+  addBananas() {
+    let newArr = this.emojis.map(el =>  el + ' ' + this.banana);
+     this.emojis = newArr
+  }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  // This block will be executed once the page is loaded and ready
+  const app = new Application();
+  // Used to access the app instance by the automated tests
+  app.setEmojis(["🐒", "🦍", "🦧"]);
+  app.addBananas();
+  window.__JS_APP = app;
+});
+
+    </script>
   </body>
   
 </html>
